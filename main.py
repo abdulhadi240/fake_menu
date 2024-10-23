@@ -4,6 +4,7 @@ from typing import List
 from classes import Customers_class
 from Menu import get_menu_items
 from Customers import create_customer, get_costumers
+from orders import get_order
 app = FastAPI()
 
 
@@ -17,6 +18,12 @@ def get_menu():
 @app.get("/get_costumers")
 def get_costumers_info():
     response = get_costumers()
+    return response
+
+
+@app.get("/get_orders")
+def get_order_details():
+    response = get_order()
     return response
 
 
