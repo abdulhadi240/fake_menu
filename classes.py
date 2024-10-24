@@ -6,3 +6,10 @@ class Customers_class(BaseModel):
     email: str
     phonenumber: str
     date: str
+
+
+class Complain_Classes(BaseModel):
+    firstname: str
+    email: str
+    date: str
+    complain: str

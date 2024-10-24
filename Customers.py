@@ -1,9 +1,5 @@
 from supabase_variables import supabase
 
-def get_costumers():
-    response = supabase.table("customers").select("*").execute()
-    return response.data
-
 
 def create_customer(firstname, lastname, email, phonenumber, date):
     response = (
@@ -21,5 +17,7 @@ def create_customer(firstname, lastname, email, phonenumber, date):
         return "Success"
     else :
         return "Unsuccessful"
+    
+    
     
     

@@ -3,8 +3,10 @@ from pydantic import BaseModel
 from typing import List
 from classes import Customers_class
 from Menu import get_menu_items
-from Customers import create_customer, get_costumers
+from Customers import create_customer
 from orders import get_order
+from classes import Complain_Classes
+from complain import create_complaint
 app = FastAPI()
 
 
@@ -14,11 +16,7 @@ def get_menu():
     response = get_menu_items()
     return response
 
-# Endpoint to provide all menu items
-@app.get("/get_costumers")
-def get_costumers_info():
-    response = get_costumers()
-    return response
+
 
 
 @app.get("/get_orders")
@@ -37,4 +35,15 @@ def create_costumers_info(customers: Customers_class):
         customers.date
     )
     return response
+
+
+@app.post("/create_complain")
+def generate_new_complain(complain: Complain_Classes):
+    response = create_complaint(
+        complain.firstname,
+        complain.email,
+        complain.complain,
+        complain.date
+    )
+    return response 
 
