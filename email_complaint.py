@@ -1,7 +1,7 @@
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
-import requests
+
 
 def create_complaint_template(customer_id,customer_name, customer_email, phone_number, complaint_text):
     # HTML template for complaint email
