@@ -7,13 +7,12 @@ def create_complaint(firstname, email, text, date):
     customer_response = (
         supabase.table("customers")
         .select("*")
-        .eq("firstname", firstname)
         .eq("email", email)
         .execute()
     )
 
     if not customer_response.data:
-        return "Customer not found. Please check the details."
+        return "Customer not found plz create a new customer"
 
     # Extract customerid from the response
     customerid = customer_response.data[0]["customerid"]
