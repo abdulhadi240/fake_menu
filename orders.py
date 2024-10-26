@@ -6,15 +6,30 @@ def get_order():
     return response.data
 
 
-def create_orders(firstname, lastname, email, phonenumber, date):
-    response = (
+def create_orders(email, menuid, quantity, status, date):
+    
+    customer_response = (
         supabase.table("customers")
+        .select("*")
+        .eq("email", email)
+        .execute()
+    )
+
+    if not customer_response.data:
+        return "Customer not found plz create a new customer"
+
+    # Extract customerid from the response
+    customerid = customer_response.data[0]["customerid"]
+    
+    
+    response = (
+        supabase.table("orders")
         .insert({
-            "firstname": firstname, 
-            "lastname": lastname, 
-            "email": email, 
-            "phonenumber": phonenumber, 
-            "datejoined": date
+            "customerid": customerid, 
+            "menuid": menuid, 
+            "quantity": quantity, 
+            "status": status, 
+            "orderdate": date
         })
         .execute()
     )

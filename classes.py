@@ -13,3 +13,11 @@ class Complain_Classes(BaseModel):
     email: str
     date: str
     complain: str
+    
+    
+class Order_class(BaseModel):
+    email: str
+    menuid: int
+    quantity: int
+    status: str
+    date: str

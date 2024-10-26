@@ -7,6 +7,8 @@ from Customers import create_customer
 from orders import get_order
 from classes import Complain_Classes
 from complain import create_complaint
+from classes import Order_class
+from orders import create_orders
 app = FastAPI()
 
 
@@ -47,3 +49,13 @@ def generate_new_complain(complain: Complain_Classes):
     )
     return response 
 
+@app.post("/create_order")
+def generate_new_complain(order: Order_class):
+    response = create_orders(
+        order.email,
+        order.menuid,
+        order.quantity,
+        order.status,
+        order.date
+    )
+    return response 
