@@ -6,7 +6,7 @@ def get_order():
     return response.data
 
 
-def create_orders(email, menuid, quantity, status, date):
+def create_orders(email, menuid, quantity, address , instruction, status, date):
     
     customer_response = (
         supabase.table("customers")
@@ -29,7 +29,9 @@ def create_orders(email, menuid, quantity, status, date):
             "menuid": menuid, 
             "quantity": quantity, 
             "status": status, 
-            "orderdate": date
+            "orderdate": date,
+            "address": address,
+            "instruction": instruction
         })
         .execute()
     )

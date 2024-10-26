@@ -19,5 +19,7 @@ class Order_class(BaseModel):
     email: str
     menuid: int
     quantity: int
+    address: str
+    instruction: str
     status: str
     date: str
