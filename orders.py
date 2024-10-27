@@ -31,7 +31,7 @@ def create_orders(email, menuid, quantity, address , instruction, status, date):
             "status": status, 
             "orderdate": date,
             "address": address,
-            "instruction": instruction
+            "Instruction": instruction
         })
         .execute()
     )

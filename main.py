@@ -55,6 +55,8 @@ def generate_new_complain(order: Order_class):
         order.email,
         order.menuid,
         order.quantity,
+        order.address,
+        order.instruction,
         order.status,
         order.date
     )
