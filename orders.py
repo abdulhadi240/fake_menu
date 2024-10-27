@@ -1,5 +1,5 @@
 from supabase_variables import supabase
-
+from order_email import create_order_template
 
 def get_order():
     response = supabase.table("orders").select("*").execute()
@@ -20,6 +20,8 @@ def create_orders(email, menuid, quantity, address , instruction, status, date):
 
     # Extract customerid from the response
     customerid = customer_response.data[0]["customerid"]
+    customer_name = customer_response.data[0]["firstname"] + " " + customer_response.data[0]["lastname"]
+    phone_number = customer_response.data[0]["phonenumber"]
     
     
     response = (
@@ -36,6 +38,7 @@ def create_orders(email, menuid, quantity, address , instruction, status, date):
         .execute()
     )
     if response.data:
+        create_order_template(customerid, customer_name, email, phone_number, menuid, quantity, instruction)
         return "Success"
     else :
         return "Unsuccessful"
