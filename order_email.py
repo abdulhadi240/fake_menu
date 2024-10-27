@@ -10,6 +10,7 @@ def create_order_template(customer_id, customer_name, customer_email, phone_numb
         <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; background-color: #f4f4f4; padding: 30px;">
             <div style="max-width: 650px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
                 <!-- Header Section -->
+                <div style="margin-top: 20px;"><img src="https://static.vecteezy.com/system/resources/previews/010/698/230/original/congratulations-banner-and-sign-with-colorful-background-design-free-vector.jpg" alt="Complaint Image" style="max-width: 100%; height: auto; border-radius: 5px;"></div>
                 <div style="background-color: #4CAF50; color: white; padding: 20px; text-align: center;">
                     <h1 style="margin: 0; font-size: 24px;">🎉 New Order Alert!</h1>
                     <p style="margin: 5px 0;">You've received a new order. Check the details below.</p>
